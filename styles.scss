@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@200;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Raleway:wght@200;500&display=swap');
+
+$font-primary: 'Inter', sans-serif;
+$font-secondary: 'Raleway', sans-serif;
+$card-padding-sm: 10px;
+$card-padding-xs: $card-padding-sm / 2;
+$card-padding-md: $card-padding-sm * 1.5;
+$card-padding-lg: $card-padding-sm * 2;
+
+$border-radius-sm: 8px;
+$border-radius-md: 12px;
+
+@mixin m-0 {
+    margin: 0;
+}
+
+
+body {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+.card {
+    max-width: 300px;
+    background-color: #3c3c3c;
+    padding-bottom: $card-padding-md;
+    border-radius: $border-radius-md;
+    &__thumbnail {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        position: absolute;
+        top: 0;
+        left: 0;
+        border-top-left-radius: $border-radius-md;
+        border-top-right-radius: $border-radius-md;
+        &-container {
+            width: 100%;
+            height: 100%;
+            padding-top: 100%; // 1:1
+            position: relative;
+        }
+    }
+    &__title {
+        @include m-0();
+        padding: $card-padding-md $card-padding-md $card-padding-xs $card-padding-md;
+        color: #FFF;
+        font-size: 30px;
+        font-family: $font-primary;
+        font-weight: 500;
+    }
+    &__occupation {
+        @include m-0();
+        padding: 0 $card-padding-md;
+        color: #FFF;
+        font-size: 14px;
+        font-family: $font-secondary;
+        font-weight: 300;
+        &:after {
+            content: '';
+            display: block;
+            height: 3px;
+            width: 20px;
+            margin-top: 10px;
+            background-color: orange;
+        }
+    }
+    &__paragraph {
+        @include m-0();
+        padding: $card-padding-md;
+        color: #FFF;
+        font-size: 14px;
+        font-family: $font-primary;
+        font-weight: 200;
+    }
+    :hover {
+        cursor: pointer;
+        .card__thumbnail {
+            filter: saturate(5);
+        }
+    }
+}
